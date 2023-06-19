@@ -1,12 +1,12 @@
 import React from "react";
-import "./Header.css";
+import "./SearchBar.css";
 import search from '../icons/search.svg'
 
-function Header(props) {
+function SearchBar() {
     return (
         <div className='header'>
             <div className='searchBar'>
-                <img src={search} className='searchIcon'/>
+                <img src={search} className='searchIcon' alt='search-icon'/>
                 <input type='text' placeholder='Поиск' className='inputSearch'/>
                 <button className='btn-search'>Найти</button>
             </div>
@@ -14,4 +14,4 @@ function Header(props) {
     );
 }
 
-export default Header;
+export default SearchBar;

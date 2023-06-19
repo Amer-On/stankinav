@@ -1,10 +1,10 @@
-import Header from "./components/Header";
+import SearchBar from "./building-map/SearchBar";
 import "./App.css"
 
 function App() {
     return (
         <div className='main-container'>
-            <Header/>
+            <SearchBar/>
             <p> Map</p>
         </div>
 
