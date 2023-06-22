@@ -1,25 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import SearchBar from "./components/SearchBar";
+import "./App.css"
+import Map from "./building-map/Map";
+import {useDispatch} from "react-redux";
+import ZoomButtons from "./components/ZoomButtons";
+import FloorSwitcher from "./components/FloorSwitcher";
+
+const floors = [1, 2]
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const dispatch = useDispatch();
+
+
+    return (
+        <div className='main-container' onMouseUp={() => dispatch({type: "SET_DRAGMAP", payload: false})}>
+            <Map/>
+            <SearchBar/>
+            <ZoomButtons/>
+            <FloorSwitcher floors={floors}/>
+        </div>
+    );
 }
 
 export default App;
