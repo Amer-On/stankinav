@@ -1,7 +1,7 @@
 const defaultState = {
     dragMap: false,
     zoom: 5,
-    level: 2
+    level: 1
 }
 const max_zoom = 10;
 const min_zoom = 1;

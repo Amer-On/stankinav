@@ -1,13 +1,14 @@
 import './ZoomButtons.css'
 import {useDispatch} from "react-redux";
+import Button from "./Button";
 
 export default function ZoomButtons() {
     const dispatch = useDispatch();
 
     return (
         <div className='zoom-buttons'>
-            <button onClick={() => dispatch({type: "ZOOM_IN"})} className='zoom-button zoom-in'>+</button>
-            <button onClick={() => dispatch({type: "ZOOM_OUT"})} className='zoom-button zoom-out'>-</button>
+            <Button onClick={() => dispatch({type: "ZOOM_IN"})} value={'+'} position='upper'/>
+            <Button onClick={() => dispatch({type: "ZOOM_OUT"})} value={'-'} position='bottom'/>
         </div>
     )
 }

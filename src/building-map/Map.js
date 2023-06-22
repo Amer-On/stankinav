@@ -1,5 +1,4 @@
 import './Map.css'
-// import floor from './floors/floor1.svg'
 
 import {useEffect, useState} from "react";
 import {useDispatch, useSelector} from "react-redux";

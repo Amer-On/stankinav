@@ -1,23 +1,26 @@
 import './FloorSwitcher.css'
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
+import {useState} from "react";
+import Button from "./Button";
 
 export default function FloorSwitcher({floors}) {
     const dispatch = useDispatch();
+    const floor = useSelector(state => state.level)
+    const [active, setActive] = useState(floor);
 
     const onClick = (e) => {
+        setActive(parseInt(e.target.value))
         dispatch({type: 'CHANGE_FLOOR', payload: e.target.value})
     }
 
     return floors ? (
         <div className='floor-buttons'>
-            <button onClick={onClick} value={floors[0]} className='floor-button upper-button'>{floors[0]}</button>
+            <Button onClick={onClick} value={floors[0]} position='upper' active={active}/>
             {floors.slice(1, -1).map(floor =>
-                <button className='floor-button' onClick={onClick} value={floor}>{floor}</button>
+                <Button onClick={onClick} value={floor} active={active}/>
             )}
             {floors.length > 1 ? (
-                <button onClick={onClick}
-                        className='floor-button bottom-button' value={floors.slice(-1)}>{floors.slice(-1)}</button>
-            ) : (<></>)}
+                <Button onClick={onClick} value={floors.slice(-1)[0]} active={active} position='bottom'/>) : null}
         </div>
     ) : (<></>)
 }
