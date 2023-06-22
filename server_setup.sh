@@ -11,10 +11,10 @@ echo export LANG=en_US.UTF-8 >> ~/.bashrc
 
 # install node and npm
 sudo apt -y install curl
-yes | curl -sL https://deb.nodesource.com/setup_14.x | sudo bash -
+yes | curl -sL https://deb.nodesource.com/setup_18.x | sudo bash -
 sudo apt -y install nodejs
 sudo apt -y install npm
-yes | npm install -g serve
+yes | npm install -g npm@latest
 
 
 # install nginx
