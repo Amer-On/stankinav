@@ -1,34 +1,34 @@
-import './OwnMap.css'
+import './Map.css'
 import floor from './floors/floor1.svg'
 
-import {useEffect, useState} from "react";
+import {useState} from "react";
+import {useDispatch, useSelector} from "react-redux";
 
 
-function OwnMap() {
+function Map() {
     const windowWidth = window.innerWidth;
     const windowHeight = window.innerHeight;
+    const dispatch = useDispatch();
+    const dragMap = useSelector(state => state.dragMap)
+
     const [mousePosition, setMousePosition] = useState([0, 0])
     const [position, setPosition] = useState([0, 0]);
-    const [drag, setDrag] = useState(false);
 
     return (
-        <div className='map-container' style={{width: windowWidth, height: windowHeight}}
-             onMouseUp={(e) => {
-                 setDrag(false)
-             }}>
+        <div className='map-container' style={{width: windowWidth, height: windowHeight}}>
             <img src={floor} draggable='false' className='map'
                  style={{
                      top: position[1],
                      left: position[0]
                  }}
                  onMouseDown={(e) => {
-                     setDrag(true);
+                     dispatch({type: "SET_DRAGMAP", payload: true})
                      setMousePosition([
                          -position[0] + e.clientX,
                          -position[1] + e.clientY])
                  }}
                  onMouseMove={(e) => {
-                     if (drag) {
+                     if (dragMap) {
                          setPosition([
                              e.clientX - mousePosition[0],
                              e.clientY - mousePosition[1]
@@ -41,4 +41,4 @@ function OwnMap() {
     );
 }
 
-export default OwnMap;
+export default Map;

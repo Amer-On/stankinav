@@ -7,7 +7,9 @@ function SearchBar() {
         <div className='header'>
             <div className='searchBar'>
                 <img src={search} className='searchIcon' alt='search-icon'/>
-                <input type='text' placeholder='Поиск' className='inputSearch'/>
+                <input type='text'
+                       placeholder='Поиск'
+                       className='inputSearch'/>
                 <button className='btn-search'>Найти</button>
             </div>
         </div>
