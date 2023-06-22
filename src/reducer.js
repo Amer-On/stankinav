@@ -1,6 +1,7 @@
 const defaultState = {
     dragMap: false,
     zoom: 5,
+    level: 2
 }
 const max_zoom = 10;
 const min_zoom = 1;
@@ -23,6 +24,8 @@ export default function reducer(state = defaultState, action) {
             return {...state, zoom: new_zoom}
         case "ZOOM_DEFAULT":
             return {...state, zoom: defaultState.zoom}
+        case "CHANGE_FLOOR":
+            return {...state, level: action.payload}
         default:
             return state
     }
