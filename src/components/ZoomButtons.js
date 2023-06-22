@@ -1,14 +1,8 @@
 import './ZoomButtons.css'
-import {useEffect} from "react";
-import {useSelector, useDispatch} from "react-redux";
+import {useDispatch} from "react-redux";
 
 export default function ZoomButtons() {
     const dispatch = useDispatch();
-    const zoom = useSelector(state => state.zoom)
-
-    useEffect(() => {
-        console.log(zoom)
-    }, [zoom])
 
     return (
         <div className='zoom-buttons'>

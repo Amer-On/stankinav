@@ -1,9 +1,9 @@
 const defaultState = {
     dragMap: false,
-    zoom: 0,
+    zoom: 5,
 }
 const max_zoom = 10;
-const min_zoom = 0;
+const min_zoom = 1;
 
 
 export default function reducer(state = defaultState, action) {
