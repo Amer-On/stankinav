@@ -1,11 +1,11 @@
 import SearchBar from "./building-map/SearchBar";
 import "./App.css"
-import Map from "./building-map/Map"
+import OwnMap from "./building-map/OwnMap";
 
 function App() {
     return (
         <div className='main-container'>
-            <Map/>
+            <OwnMap/>
             <SearchBar/>
         </div>
     );
