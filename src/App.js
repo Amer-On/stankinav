@@ -10,9 +10,14 @@ const floors = [1, 2]
 function App() {
     const dispatch = useDispatch();
 
+    const finishDrag = () => {
+        dispatch({type: "SET_DRAGMAP", payload: false})
+    }
 
     return (
-        <div className='main-container' onMouseUp={() => dispatch({type: "SET_DRAGMAP", payload: false})}>
+        <div className='main-container' onMouseUp={finishDrag}
+             onTouchEnd={finishDrag}
+             onTouchCancel={finishDrag}>
             <Map/>
             <SearchBar/>
             <ZoomButtons/>
