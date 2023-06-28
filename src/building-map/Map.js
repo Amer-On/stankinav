@@ -40,8 +40,8 @@ function Map() {
                  onTouchStart={e => {
                      dispatch({type: "SET_DRAGMAP", payload: true})
                      setMousePosition([
-                         -position[0] + e.touches[0].clientX,
-                         -position[1] + e.touches[0].clientY])
+                         -position[0] + e.touches.item(0).clientX,
+                         -position[1] + e.touches.item(0).clientY])
                  }}
                  onTouchMove={e => {
                      if (dragMap) {
